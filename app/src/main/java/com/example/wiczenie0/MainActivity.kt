@@ -9,7 +9,10 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.TextView
 import com.example.wiczenie0.databinding.ActivityMainBinding
+import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +34,12 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+        }
+        findViewById<Button>(R.id.buttonFirst).setOnClickListener {
+            if(findViewById<TextInputEditText>(R.id.textInputEditTextNazwisko).text.toString() == "" || findViewById<TextInputEditText>(R.id.textInputEditTextImie).text.toString() == "" )
+                findViewById<TextView>(R.id.textView).text = "Wypełnij wszystkie pola";
+            else
+                findViewById<TextView>(R.id.textView).text = "Wszystkie dane są poprawne";
         }
     }
 
